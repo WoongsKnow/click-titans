@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .container {
+      width: 220px;
+      height: 310px;
+      transition: all 0.1s;
+    }
+    .card {
+      width: 220px;
+      height: 310px;
+      background-image: url(assets/images/homer.jpg);
+      background-size: cover;
+    }
+    .overlay {
+      position: absolute;
+      width: 220px;
+      height: 310px;
+      background: linear-gradient(105deg, transparent 40%, rgba(255, 219, 122, 0.8) 45%, rgba(132, 50, 255, 0.6) 50%, transparent 54%);
+      background-size: 150% 150%;
+      background-position: 100%;
+      filter: brightness(1.2) opacity(0.8);
+      mix-blend-mode: color-dodge;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="overlay"></div>
+    <div class="card"></div>
+  </div>
+  <script>
+    const container = document.querySelector('.container')
+    const overlay = document.querySelector('.overlay')
+    container.addEventListener('mousemove', (e) => {
+      console.log(e.offsetX, e.offsetY)
+      const x = e.offsetX;
+      const y = e.offsetY;
+      const rotateX = 4/30 * y - 20;
+      const rotateY = -1/5 * x + 20;
+      container.style = `transform: perspective(350px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      overlay.style = `background-position: ${x/5 + y/5}%`
+    })
+  </script>
+</body>
+</html>

@@ -7,8 +7,6 @@ canvas.height = window.innerHeight - 100;
 let isJump = false;
 const image = new Image();
 image.src = 'assets/images/img_cat_next.png'
-image.width = 50;
-image.height = 50;
 const dino = {
   x: 10,
   y: 200,
